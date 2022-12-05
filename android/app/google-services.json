@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "771983569373",
+    "project_id": "chat-app-a04e6",
+    "storage_bucket": "chat-app-a04e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:771983569373:android:7f40b885f074e61a9c8634",
+        "android_client_info": {
+          "package_name": "com.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "771983569373-7k4h4pqnhtsctak0m4pqsn44r684nrrj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNffipu8S0SPLT_YzVn04qU6p3xoeS-Vk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "771983569373-7k4h4pqnhtsctak0m4pqsn44r684nrrj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:771983569373:android:eb960579705f0c2d9c8634",
+        "android_client_info": {
+          "package_name": "com.chatappmikita"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "771983569373-ep6o549k9r3nlpfn6nrqstcq8j5j8di7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chatappmikita",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "771983569373-7k4h4pqnhtsctak0m4pqsn44r684nrrj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNffipu8S0SPLT_YzVn04qU6p3xoeS-Vk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "771983569373-7k4h4pqnhtsctak0m4pqsn44r684nrrj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
