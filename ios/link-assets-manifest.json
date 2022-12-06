@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/majalla-regular.ttf",
+      "sha1": "8dd0a1dbc67b3bb6c50b463dce900674bf9ac186"
+    },
+    {
+      "path": "assets/fonts/majallab-bold.ttf",
+      "sha1": "cd2e9e61aca39d2b987b66e4c2a0a3ea13c3be48"
+    }
+  ]
+}
