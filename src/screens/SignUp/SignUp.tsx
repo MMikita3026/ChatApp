@@ -5,6 +5,7 @@ import { AuthenticationStackParamList } from "../../navigation/Authentication";
 import { NavigationProp, useNavigation } from "@react-navigation/native";
 import { LayoutAnimation } from "react-native";
 import { signUpUserWithEmailAndPassword } from "../../firebase/authentication";
+import { createUser } from "../../firebase/firestore/users";
 
 type SignUpPropsType = NativeStackScreenProps<AuthenticationStackParamList, 'SignUp'>;
 type NavigationLoginProp = NavigationProp<
@@ -16,6 +17,8 @@ const SignUp: React.FC<SignUpPropsType> = (props) => {
   const navigation = useNavigation<NavigationLoginProp>();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [name, setName] = useState<string>('');
+  const [phoneNumber, setPhoneNumber] = useState<string>('');
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -35,6 +38,8 @@ const SignUp: React.FC<SignUpPropsType> = (props) => {
   const returnStateToInitial = () => {
     setEmail('');
     setPassword('');
+    setName('');
+    setPhoneNumber('');
     setIsPasswordVisible(false);
   }
 
@@ -42,7 +47,8 @@ const SignUp: React.FC<SignUpPropsType> = (props) => {
     setIsLoading(true);
 
     try {
-      await signUpUserWithEmailAndPassword(email, password);
+      const newUser = await signUpUserWithEmailAndPassword(email, password);
+      await createUser(newUser?.uid, name, phoneNumber);
       returnStateToInitial();
     } catch (e) {
       console.log('Error while signing up', e);
@@ -62,6 +68,10 @@ const SignUp: React.FC<SignUpPropsType> = (props) => {
       onPasswordShowToggle={handlePasswordShowToggle}
       isPasswordVisible={isPasswordVisible}
       onSignUp={handleSignUp}
+      name={name}
+      setName={setName}
+      phoneNumber={phoneNumber}
+      setPhoneNumber={setPhoneNumber}
     />
   );
 };

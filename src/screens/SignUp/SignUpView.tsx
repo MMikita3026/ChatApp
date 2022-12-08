@@ -16,6 +16,10 @@ type SignUpViewPropsType = {
   onPasswordShowToggle: () => void;
   isPasswordVisible: boolean;
   onSignUp: () => void;
+  name: string;
+  setName: (name: string) => void;
+  phoneNumber: string;
+  setPhoneNumber: (phoneNumber: string) => void;
 }
 
 const SignUpView: React.FC<SignUpViewPropsType> = (props) => {
@@ -49,6 +53,24 @@ const SignUpView: React.FC<SignUpViewPropsType> = (props) => {
             onChangeText={props.setEmail}
             leftIcon={
               <Icon name="mail-outline" size={24} color="#A6A6A6" type="material" />
+            }
+          />
+          <Input
+            placeholder="Name"
+            inputStyle={styles.inputTextStyle}
+            value={props.name}
+            onChangeText={props.setName}
+            leftIcon={
+              <Icon name="badge" size={24} color="#A6A6A6" type="material" />
+            }
+          />
+          <Input
+            placeholder="Phone Number"
+            inputStyle={styles.inputTextStyle}
+            value={props.phoneNumber}
+            onChangeText={props.setPhoneNumber}
+            leftIcon={
+              <Icon name="call" size={24} color="#A6A6A6" type="material" />
             }
           />
           <Input
@@ -136,6 +158,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     alignSelf: 'center',
+    zIndex: -1,
   }
 });
 

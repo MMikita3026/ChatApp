@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useEffect, useState } from "react";
 import auth from "@react-native-firebase/auth";
 
-interface User {
+export interface AuthenticatedUser {
   displayName: string | null;
   email: string;
   emailVerified: boolean;
@@ -25,7 +25,7 @@ interface User {
 
 interface Session {
   loading: boolean;
-  user: User | null;
+  user: AuthenticatedUser | null;
 }
 
 export const UserContext = React.createContext(null);
@@ -33,7 +33,7 @@ export const UserContext = React.createContext(null);
 export const UserProvider = (props) => {
   const [session, setSession] = useState<Session>({ loading: true, user: null });
 
-  const onAuthStateChanged = (user: User | null) => {
+  const onAuthStateChanged = (user: AuthenticatedUser | null) => {
     setSession({ user, loading: false });
   }
 
