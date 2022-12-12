@@ -21,7 +21,8 @@ const UsersList: React.FC<UsersListPropsType> = (props) => {
   const getUsersList = async () => {
     try {
       const users = await getUsers();
-      setUsers(users);
+      const usersWithoutCurrent = users.filter(user => user.id !== currentUser.uid);
+      setUsers(usersWithoutCurrent);
     } catch (e) {
       console.log('Error while loading the list of users', e);
     }
@@ -37,6 +38,7 @@ const UsersList: React.FC<UsersListPropsType> = (props) => {
     setIsContactAdding(true);
     try {
       await addContactToUser(currentUser.uid, contactId);
+      await addContactToUser(contactId, currentUser.uid);
     } catch (e) {
       console.log('Error while adding contact', e);
     }

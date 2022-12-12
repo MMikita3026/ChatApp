@@ -1,27 +1,36 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, View } from "react-native";
+import { FlatList, SafeAreaView, ScrollView, StyleSheet, View } from "react-native";
 import SignOut from "../../components/Buttons/SignOut";
 import AddContact from "../../components/Buttons/AddContact";
+import { SimpleUser } from "../../firebase/firestore/users/types";
+import ContactItem from "./components/ContactItem";
 
 type HomeViewPropsType = {
   onSignOut: () => void;
   onAddContact: (contactId: string) => void;
+  contacts: Array<SimpleUser> | [];
+  onContactPress: (contactId: string) => void;
 }
 
 const HomeView: React.FC<HomeViewPropsType> = (props) => {
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.container}>
-        <View style={styles.header}>
-          <View style={styles.oneThirdHeader}>
-            <AddContact onPress={props.onAddContact} />
+      <FlatList
+        ListHeaderComponent={
+          <View style={styles.header}>
+            <View style={styles.oneThirdHeader}>
+              <AddContact onPress={props.onAddContact} />
+            </View>
+            <View style={styles.oneThirdHeader} />
+            <View style={styles.oneThirdHeader}>
+              <SignOut title="SignOut" onPress={props.onSignOut} />
+            </View>
           </View>
-          <View style={styles.oneThirdHeader} />
-          <View style={styles.oneThirdHeader}>
-            <SignOut title="SignOut" onPress={props.onSignOut} />
-          </View>
-        </View>
-      </ScrollView>
+        }
+        data={props.contacts}
+        keyExtractor={(item: SimpleUser) => item.id}
+        renderItem={(({item}) => <ContactItem item={item} onPress={props.onContactPress} />)}
+      />
     </SafeAreaView>
   );
 }

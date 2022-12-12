@@ -4,6 +4,7 @@ import { Icon } from "@rneui/base";
 import { useNavigation } from "@react-navigation/native";
 
 type BackPropsType = {
+  isBlack?: boolean;
 }
 
 const Back: React.FC<BackPropsType> = (props) => {
@@ -15,7 +16,7 @@ const Back: React.FC<BackPropsType> = (props) => {
 
   return (
     <Button type="clear" onPress={handlePress}>
-      <Icon size={28} name="arrow-back" color="#ffffff" />
+      <Icon size={28} name="arrow-back" color={props.isBlack ? "#000000" : "#ffffff"} />
     </Button>
   );
 }

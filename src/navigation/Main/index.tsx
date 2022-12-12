@@ -3,12 +3,16 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from "../../screens/Home";
 import { AuthenticatedUser } from "../../providers/UserProvider";
 import UsersList from "../../screens/UsersList";
+import Chat from "../../screens/Chat";
 
 export type MainStackParamList = {
   Home: undefined,
   UsersList: {
     userId: AuthenticatedUser["uid"];
-  }
+  };
+  Chat: {
+    interlocutorId: string;
+  };
 }
 
 const MainStack = createNativeStackNavigator<MainStackParamList>();
@@ -25,6 +29,7 @@ const Main = () => {
             presentation: 'modal',
           }}
         />
+        <MainStack.Screen name="Chat" component={Chat} />
       </MainStack.Group>
     </MainStack.Navigator>
   );
