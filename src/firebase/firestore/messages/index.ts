@@ -16,6 +16,14 @@ export const getMessages = async (userId: string, interlocutorId: string) => {
   }))
 }
 
+export const getMessage = async (messageId: string): Promise<Message> => {
+  const message = await firestore().collection('messages').doc(messageId).get();
+  return {
+    ...message.data(),
+    id: messageId,
+  };
+}
+
 export const subscribeToMessages = (userId: string, interlocutorId: string, callback: (messages: Array<Message> | []) => void): () => void => {
   const onChange = (querySnapshot) => {
     const data: Array<Message> | [] = [];

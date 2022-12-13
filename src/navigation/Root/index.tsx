@@ -12,7 +12,6 @@ const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 const Root = () => {
   const { user } = useSession();
-  console.log(user);
 
   if (!user) {
     return (

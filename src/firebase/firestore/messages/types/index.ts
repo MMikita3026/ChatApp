@@ -3,5 +3,5 @@ export interface Message {
   to: string;
   content: string;
   creationDate: string;
-  id: string;
+  id?: string;
 }
